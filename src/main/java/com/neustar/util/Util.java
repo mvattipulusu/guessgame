@@ -4,7 +4,7 @@ public class Util {
 	
 	private static final String GUESS_LARGE_THAN_RANDOM = "Your number is too large!";
 	private static final String GUESS_SMALLER_THAN_RANDOM = "Your number is too small!";
-	private static final String GUESS_EQUALS_RANDOM = "You guessed the right number";
+	private static final String GUESS_EQUALS_RANDOM = "Congratulations! You guessed the right number";
 	
 	/**
 	 * Compares Guess with Random No.
