@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.neustar.util.MathUtil;
+import com.neustar.util.Util;
 
 @Controller
 public class BaseController {
 
 	private static int counter = 0;
 	private static int randomNumber = 0;
+	private static int chances = 5;
 	private static final String VIEW_INDEX = "index";
 	private final static org.slf4j.Logger logger = LoggerFactory
 			.getLogger(BaseController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
-
-		model.addAttribute("message", "Welcome");
 		model.addAttribute("counter", counter);
-		logger.debug("[welcome] counter : {}", counter);
+		model.addAttribute("chances", chances);
+		logger.debug("current counter : {}", counter);
+		logger.debug("total chances : {}", chances);
 		return VIEW_INDEX;
 	}
 
@@ -31,6 +33,7 @@ public class BaseController {
 	public String reset(ModelMap model) {
 		counter = 0;
 		model.addAttribute("counter", counter);
+		model.addAttribute("chances", chances);
 		logger.debug("[resetting] counter : {}", counter);
 		return VIEW_INDEX;
 
@@ -51,11 +54,16 @@ public class BaseController {
 		if (++counter == 1)
 			randomNumber = MathUtil.randInt(min, max);
 		
+		model.addAttribute("message", Util.compareGuessToRandom(guessNo, randomNumber));
 		model.addAttribute("counter", counter);
 		model.addAttribute("randomNumber", randomNumber);
 		model.addAttribute("guessNo", guessNo);
-		logger.debug("[welcomeName] counter : {}", counter);
-		logger.debug("[welcomeName] guessNo : {}", guessNo);
+		model.addAttribute("chances", chances);
+		
+		
+		
+		logger.debug("counter : {}", counter);
+		logger.debug("guessNo : {}", guessNo);
 		logger.debug("randomNumber : {}", randomNumber);		
 		return VIEW_INDEX;
 	}
