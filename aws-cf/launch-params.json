@@ -1,0 +1,43 @@
+[
+   {
+     "ParameterKey":"KeyName",
+     "ParameterValue":"test1"
+  },
+  {
+    "ParameterKey": "VPCAvailabilityZone1",
+    "ParameterValue": "us-east-1a"
+  },
+  {
+    "ParameterKey": "VPCAvailabilityZone2",
+    "ParameterValue": "us-east-1c"
+  },
+   
+   {
+        "ParameterKey": "AssetsBucketPrefix",
+        "ParameterValue": "innov2015"
+  },
+   {
+          "ParameterKey": "ConsumerWarFileKey",
+          "ParameterValue": "GuessGame.war"
+    },
+    {
+                  "ParameterKey": "VPCTemplateKey",
+                  "ParameterValue": "https://s3.amazonaws.com/itsa-web-rds/itsa-vpc.cfn.json"
+    },
+    {
+                      "ParameterKey": "BeanStalkTemplateKey",
+                      "ParameterValue": "https://s3.amazonaws.com/itsa-web-rds/itsa-elasticbeanstalk2-vpc.cfn.json"
+    },
+        {
+                      "ParameterKey": "DeveloperName",
+                      "ParameterValue": "Def"
+    },
+    {
+                          "ParameterKey": "EnvironmentName",
+                          "ParameterValue": "Test"
+    },
+        {
+                              "ParameterKey": "S3BucketUrl",
+                              "ParameterValue": "https://s3.amazonaws.com/innov2015/"
+    }
+]
