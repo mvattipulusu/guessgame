@@ -28,7 +28,7 @@
     },
     "EnvironmentName": {
       "Type": "String",
-      "Default": "Dev"
+      "Default": "Development"
     },
 	"InstanceSecurityGroup": {
 	  "Type": "String"
