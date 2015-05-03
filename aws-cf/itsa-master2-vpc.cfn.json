@@ -62,7 +62,7 @@
       "BeanStalkTemplateKey":{  
                "Description":"The key of the template for the bean stalk stack",
                "Type":"String",
-               "Default":"https://s3.amazonaws.com/itsa-web-rds/itsa-elasticbeanstalk2-vpc.cfn.json"
+               "Default":"https://s3.amazonaws.com/innov2015/cf/itsa-elasticbeanstalk-singleapp.cfn.json"
       },
       "BastionInstanceType":{  
          "Description":"Bastion Host EC2 instance type",
@@ -124,35 +124,7 @@
       }
    },
    "Resources":{  
-      "VPCScaffold":{  
-         "Type":"AWS::CloudFormation::Stack",
-         "Properties":{  
-            "TemplateURL":{  
-               "Ref":"VPCTemplateKey"
-            },
-            "Parameters":{  
-               "KeyName":{  
-                  "Ref":"KeyName"
-               },
-               "SSHFrom":{  
-                  "Ref":"SSHFrom"
-               },
-               "BastionInstanceType":{  
-                  "Ref":"BastionInstanceType"
-               },
-               "NATInstanceType":{  
-                  "Ref":"NATInstanceType"
-               },
-               "VPCAvailabilityZone1":{  
-                  "Ref":"VPCAvailabilityZone1"
-               },
-               "VPCAvailabilityZone2":{  
-                  "Ref":"VPCAvailabilityZone2"
-               }
-            }
-         }
-      },
-      "Consumer":{  
+     "Consumer":{  
          "Type":"AWS::CloudFormation::Stack",
          "Properties":{  
             "TemplateURL":{  
@@ -183,53 +155,20 @@
                "EnvironmentName":{  
                   "Ref":"EnvironmentName"
                },
-               "InstanceSecurityGroup":{  
-                  "Fn::GetAtt":[  
-                     "VPCScaffold",
-                     "Outputs.InstanceSecurityGroup"
-                  ]
-               },
-               "VPCId":{  
-                  "Fn::GetAtt":[  
-                     "VPCScaffold",
-                     "Outputs.VPCId"
-                  ]
-               },
+               "InstanceSecurityGroup":"sg-4e33652a",
+               "VPCId":"vpc-68fddf0d",
                "PrivateSubnets":{  
                   "Fn::Join":[  
                      ",",
                      [  
-                        {  
-                           "Fn::GetAtt":[  
-                              "VPCScaffold",
-                              "Outputs.PrivateSubnet1"
-                           ]
-                        },
-                        {  
-                           "Fn::GetAtt":[  
-                              "VPCScaffold",
-                              "Outputs.PrivateSubnet2"
-                           ]
-                        }
+                       "subnet-47e6636c","subnet-f4cf5dad"
                      ]
                   ]
                },
                "PublicSubnets":{  
                   "Fn::Join":[  
                      ",",
-                     [  
-                        {  
-                           "Fn::GetAtt":[  
-                              "VPCScaffold",
-                              "Outputs.PublicSubnet1"
-                           ]
-                        },
-                        {  
-                           "Fn::GetAtt":[  
-                              "VPCScaffold",
-                              "Outputs.PublicSubnet2"
-                           ]
-                        }
+                     [  "subnet-46e6636d","subnet-f7cf5dae"
                      ]
                   ]
                }
