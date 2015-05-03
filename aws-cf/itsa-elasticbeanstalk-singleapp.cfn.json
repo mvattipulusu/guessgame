@@ -139,7 +139,7 @@
       "Type": "AWS::ElasticBeanstalk::Environment",
       "Properties": {
         "ApplicationName": { "Ref": "Application"},
-        "EnvironmentName" :{ "Ref": "EnvironmentName"},
+        "EnvironmentName" :{ "Fn::Join" : ["-", [{ "Ref": "Application"}, { "Ref": "EnvironmentName" }]] },
         "Description": "Default Environment",
         "VersionLabel": "Initial Version",
         "TemplateName": "DefaultConfiguration",
