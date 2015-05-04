@@ -2,9 +2,9 @@
 applications:
 - name: guessgame
   memory: 512M
-  host: testhost
+  host: cfapps.io
   instances:1
   timeout: 42
   no-route: true
   domain: testdomain.local
-  path: target/guessgame-1.0.war
+  path: target/GuessGame.war
