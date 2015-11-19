@@ -155,20 +155,20 @@
                "EnvironmentName":{  
                   "Ref":"EnvironmentName"
                },
-               "InstanceSecurityGroup":"sg-4e33652a",
-               "VPCId":"vpc-68fddf0d",
+               "InstanceSecurityGroup":"sg-c1aedaa7",
+               "VPCId":"vpc-eed4548a",
                "PrivateSubnets":{  
                   "Fn::Join":[  
                      ",",
                      [  
-                       "subnet-47e6636c","subnet-f4cf5dad"
+                       "subnet-fe1211d5"
                      ]
                   ]
                },
                "PublicSubnets":{  
                   "Fn::Join":[  
                      ",",
-                     [  "subnet-46e6636d","subnet-f7cf5dae"
+                     [  "subnet-fd1211d6"
                      ]
                   ]
                }
